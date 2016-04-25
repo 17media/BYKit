@@ -7,7 +7,7 @@
 
 ## Usage
 
-To run the example project, clone the repo, and run `pod install` from the [Example](Example) directory first.
+To run the example project, clone the repo, and run `pod install` from the [BYKitDemo](BYKitDemo) directory first.
 
 ## Requirements
 
@@ -41,4 +41,4 @@ Barry Lee, hcbarry@gmail.com
 
 ## License
 
-BYKit is available under the MIT license. See the LICENSE file for more info.
+BYKit is available under the MIT license. See the [LICENSE](LICENSE) file for more info.
