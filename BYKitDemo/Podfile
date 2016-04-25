@@ -1,0 +1,8 @@
+source 'https://github.com/CocoaPods/Specs.git'
+use_frameworks!
+
+target 'BYKitDemo’, :exclusive => true do
+  pod "BYKit", :path => "../"
+#  pod "BYKit", :git => 'https://github.com/hcbarry/BYKit.git'
+
+end
