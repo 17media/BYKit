@@ -28,6 +28,14 @@
     NSLog(@"selector3 result: %@\n\n", [self byk_performSelectorIfPossible:@selector(selector3:) withObject:@"String1"]);
 
     NSLog(@"selector4 result: %@\n\n", [self byk_performSelectorIfPossible:@selector(selector4:object:) withObject:@"String1" withObject:@"String2"]);
+
+    NSLog(@"unrecognized_selector1 result: %@\n\n", [self byk_performSelectorIfPossible:@selector(unrecognized_selector1)]);
+
+    NSLog(@"unrecognized_selector2 result: %@\n\n", [self byk_performSelectorIfPossible:@selector(unrecognized_selector2)]);
+
+    NSLog(@"unrecognized_selector3 result: %@\n\n", [self byk_performSelectorIfPossible:@selector(unrecognized_selector3:) withObject:@"String1"]);
+
+    NSLog(@"unrecognized_selector4 result: %@\n\n", [self byk_performSelectorIfPossible:@selector(unrecognized_selector4:object:) withObject:@"String1" withObject:@"String2"]);
 }
 
 #pragma mark - NSObject+BYKit

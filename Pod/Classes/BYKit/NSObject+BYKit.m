@@ -22,6 +22,10 @@
 
 - (id)byk_performSelectorIfPossible:(SEL)selector withObject:(id)object1 withObject:(id)object2
 {
+    if (![self respondsToSelector:selector]) {
+        return nil;
+    }
+
     NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:[self methodSignatureForSelector:selector]];
     invocation.target = self;
     invocation.selector = selector;
