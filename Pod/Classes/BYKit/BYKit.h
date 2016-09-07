@@ -6,4 +6,6 @@
 //  Copyright © 2016 BarryLee. All rights reserved.
 //
 
-#import "NSObject+BYKit.h"
+#import "BYKit+Foundation.h"
+#import "BYKit+QuartzCore.h"
+#import "BYKit+UIKit.h"
