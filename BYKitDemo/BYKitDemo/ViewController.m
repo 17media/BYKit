@@ -92,6 +92,25 @@
     
     NSArray *imageViewArray = [self.view byk_containingViewsWithClassName:NSStringFromClass(UIImageView.class)];
     NSLog(@"All UIImageView classes in self.view:%@", imageViewArray);
+    
+    UITabBar *tabBar = [UITabBar new];
+    tabBar.items = @[[[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemBookmarks tag:0],
+                     [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemContacts tag:1],
+                     [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemDownloads tag:2],
+                     [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemFavorites tag:3],
+                     [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemHistory tag:4]
+                     ];
+    ((UITabBarItem *)tabBar.items[1]).badgeValue = @"1";
+    ((UITabBarItem *)tabBar.items[2]).badgeValue = @"20";
+    ((UITabBarItem *)tabBar.items[3]).badgeValue = @"300";
+    ((UITabBarItem *)tabBar.items[4]).badgeValue = @"4000";
+    [tabBar byk_updateBadgesWithFont:[UIFont systemFontOfSize:11.0f] fontColor:[UIColor blackColor] backgroundColor:[UIColor cyanColor]];
+    [self.view addSubview:tabBar];
+    [tabBar sizeToFit];
+    tabBar.frame = CGRectMake(0,
+                              CGRectGetHeight(self.view.frame) - CGRectGetHeight(tabBar.frame),
+                              CGRectGetWidth(tabBar.frame),
+                              CGRectGetHeight(tabBar.frame));
 }
 
 @end

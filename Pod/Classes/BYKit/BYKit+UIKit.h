@@ -6,4 +6,5 @@
 //  Copyright (c) 2016年 BarryLee. All rights reserved.
 //
 
+#import "UITabBar+BYKit.h"
 #import "UIView+BYKit.h"
