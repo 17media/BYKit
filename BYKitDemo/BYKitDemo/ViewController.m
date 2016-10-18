@@ -83,9 +83,9 @@
     UIImageView *demoImageView = [[UIImageView alloc] initWithImage:demoSwitchSnapshotImage];
     [self.view addSubview:demoImageView];
     demoImageView.frame = CGRectMake(CGRectGetMinX(demoSwitch.frame),
-                                     CGRectGetMinY(demoSwitch.frame) + demoSwitchSnapshotImage.size.height,
-                                     demoSwitchSnapshotImage.size.width,
-                                     demoSwitchSnapshotImage.size.height);
+                                     CGRectGetMaxY(demoSwitch.frame),
+                                     CGRectGetWidth(demoImageView.frame),
+                                     CGRectGetHeight(demoImageView.frame));
     NSLog(@"Snapshot imageView:%@", demoImageView);
     
     demoSwitch.tintColor = [UIColor blackColor];
@@ -111,6 +111,21 @@
                               CGRectGetHeight(self.view.frame) - CGRectGetHeight(tabBar.frame),
                               CGRectGetWidth(tabBar.frame),
                               CGRectGetHeight(tabBar.frame));
+    
+    NSLog(@"=============================BYNonSelectableTextView=============================\n");
+    BYNonSelectableTextView *textView = [BYNonSelectableTextView new];
+    [self.view addSubview:textView];
+    textView.attributedText = [[NSAttributedString alloc] initWithString:@"Apple"
+                                                              attributes:@{
+                                                                           NSUnderlineStyleAttributeName: @(NSUnderlineStyleSingle),
+                                                                           NSLinkAttributeName: @"https://www.apple.com"
+                                                                           }];
+    [textView sizeToFit];
+    textView.center = self.view.center;
+    textView.frame = CGRectMake(CGRectGetMinX(textView.frame),
+                                CGRectGetMaxY(demoImageView.frame),
+                                CGRectGetWidth(textView.frame),
+                                CGRectGetHeight(textView.frame));
 }
 
 @end
