@@ -44,6 +44,17 @@
     NSLog(@"unrecognized_selector3 result: %@\n\n", [self byk_performSelectorIfPossible:@selector(unrecognized_selector3:) withObject:@"String1"]);
     
     NSLog(@"unrecognized_selector4 result: %@\n\n", [self byk_performSelectorIfPossible:@selector(unrecognized_selector4:object:) withObject:@"String1" withObject:@"String2"]);
+    
+    NSLog(@"Start loading link header...");
+
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"https://api.github.com/users?page=2&per_page=2"]];
+
+    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+        if ([response isKindOfClass:[NSHTTPURLResponse class]]) {
+            BYLinkHeader *linkHeader = [[BYLinkHeader alloc] initWithHTTPResponse:(NSHTTPURLResponse *)response];
+            NSLog(@"Link header:\nnext:%@\nlast:%@\nfirst:%@\nprev:%@\n", linkHeader.next, linkHeader.last, linkHeader.first, linkHeader.prev);
+        }
+    }];
 }
 
 - (void)selector1 {
